@@ -3,24 +3,9 @@
 
 <head>
 
-    <!--Place DTM header below this-->
 
-
-
-    <!--Place DTM header above this-->
-
-
-    <script>
-        var digitalData = digitalData || {};
-        digitalData = {
-            page: {
-                pageName: "Checkout:Shopping Cart",
-                siteSection: "Checkout",
-                server: "Geometrixx Clothiers Site"
-            },
-        };
-    </script>
-
+//<script src="https://assets.adobedtm.com/6d07e8369d1a/ba3f281a96d9/launch-0c1d7ea5bf19.min.js" async></script>
+<script src="https://assets.adobedtm.com/6d07e8369d1a/ba3f281a96d9/launch-912e67c214e3-staging.min.js" async></script>
 
 
     <title>Geometrixx|Checkout|Shopping Cart</title>
@@ -48,6 +33,11 @@
 
 <body>
 
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJBK3BZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div id="superwrap">
         <div id="wrapper">
@@ -258,6 +248,56 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
 
     <!--Place DTM footer below this-->
 
+<script>
+setTimeout(setDataLayer, 12000);
+
+function setDataLayer() {
+  console.log(">>>>>>>>>>>>> delay >>>>>>>>>>>");
+  let customerDetails='',customerStatus ='';
+  if(document.cookie.indexOf('username')>= 0){
+    let value = document.cookie;
+	let parts = value.split(';');
+	customerDetails = parts[0].split('=');
+	customerDetails = customerDetails[1];
+	customerStatus = "LoggedIn";
+  }else {
+	customerStatus = "Not LoggedIn";
+	customerDetails ="";
+  }
+  
+  let productOrg = [];
+  let listOfProducts = document.querySelectorAll(".simpleCart_items .itemContainer");
+ 
+  for (let i = 0; i < listOfProducts.length; i++) {
+    productOrg[i]=[];
+    productOrg[i][0] = listOfProducts[i].children[0].innerHTML;
+    productOrg[i][1]= listOfProducts[i].children[1].innerHTML;
+    productOrg[i][2] = listOfProducts[i].children[2].innerHTML;
+ }
+
+ window.digitalData = window.digitalData || {};
+ 
+ window.digitalData = {
+    page: {
+                pageName: "Checkout:Shopping Cart",
+                siteSection: "Checkout",
+                server: "Geometrixx Clothiers Site"
+            },
+            customer: {
+                loginStatus: customerStatus,
+                userName: customerDetails
+            },
+            product: []
+     };
+
+for (let i = 0; i < productOrg.length; i++) {
+	window.digitalData.product.push({"productName" : productOrg[i][0],"productPrice": productOrg[i][1],"productQuantity": productOrg[i][2]});
+   }
+console.log("<<<<<<<<<<<<<<< DATA LAYER PROCESSED >>>>>>>>>>>>>>>>")
+}
+
+</script>
+
     <script type="text/javascript">
         _satellite.pageBottom();
     </script>
@@ -266,4 +306,4 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
 
 </body>
 
-</html>
+</html>				

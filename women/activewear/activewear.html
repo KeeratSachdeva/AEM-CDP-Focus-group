@@ -4,13 +4,30 @@
 <head>
 
     <!--Place DTM header below this-->
-
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJBK3BZ');</script>
+    <!-- End Google Tag Manager -->
 
 
     <!--Place DTM header above this-->
 
 
     <script>
+let customerDetails='',customerStatus ='';
+if(document.cookie.indexOf('username')>= 0){
+let value = document.cookie;
+let parts = value.split(';');
+customerDetails = parts[0].split('=');
+customerDetails = customerDetails[1];
+customerStatus = "LoggedIn";
+} else {
+customerStatus = "Not LoggedIn";
+customerDetails ="";}
+console.log("USERNAME DETAILS "+customerStatus+" "+ customerDetails );
         var digitalData = digitalData || {};
         digitalData = {
             page: {
@@ -19,8 +36,13 @@
                 siteSubsection: "Activewear",
                 server: "Geometrixx Clothiers Site"
             },
+customer: {
+loginStatus: customerStatus,
+userName: customerDetails
+},
         };
     </script>
+<script src="https://assets.adobedtm.com/6d07e8369d1a/ba3f281a96d9/launch-0c1d7ea5bf19.min.js" async></script>
 
     <title>Geometrixx|Women|Activewear</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,6 +69,10 @@
 
 <body>
 
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJBK3BZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div id="superwrap">
         <div id="wrapper">
@@ -297,4 +323,4 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
 
 </body>
 
-</html>
+</html>		

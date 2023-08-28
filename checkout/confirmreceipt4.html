@@ -5,11 +5,32 @@
 
     <!--Place DTM header below this-->
 
+    <script src="https://assets.adobedtm.com/35066b6d6803/df4f7ec9a42b/launch-19f72e08da00-development.min.js" async></script>
+
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJBK3BZ');</script>
+    <!-- End Google Tag Manager -->
 
     <!--Place DTM header above this-->
 
 
     <script>
+let customerDetails='',customerStatus ='';
+if(document.cookie.indexOf('username')>= 0){
+let value = document.cookie;
+let parts = value.split(';');
+customerDetails = parts[0].split('=');
+customerDetails = customerDetails[1];
+customerStatus = "LoggedIn";
+} else {
+customerStatus = "Not LoggedIn";
+customerDetails ="";}
+console.log("USERNAME DETAILS "+customerStatus+" "+ customerDetails );
         var digitalData = digitalData || {};
         digitalData = {
             page: {
@@ -24,9 +45,15 @@
 			productTotalUnits: "1",
 			productTax: "235.00",
 			productPostage: "50"
-	    },		
+	    },	
+customer: {
+loginStatus: customerStatus,
+userName: customerDetails
+},	
         };
     </script>
+
+<script src="https://assets.adobedtm.com/6d07e8369d1a/ba3f281a96d9/launch-0c1d7ea5bf19.min.js" async></script>
 
 
     <title>Geometrixx|Checkout|Order Confirmation Step 4</title>
@@ -54,6 +81,11 @@
 
 <body>
 
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJBK3BZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div id="superwrap">
 

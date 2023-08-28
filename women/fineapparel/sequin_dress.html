@@ -11,6 +11,17 @@
 
 
     <script>
+let customerDetails='',customerStatus ='';
+if(document.cookie.indexOf('username')>= 0){
+let value = document.cookie;
+let parts = value.split(';');
+customerDetails = parts[0].split('=');
+customerDetails = customerDetails[1];
+customerStatus = "LoggedIn";
+} else {
+customerStatus = "Not LoggedIn";
+customerDetails ="";}
+console.log("USERNAME DETAILS "+customerStatus+" "+ customerDetails );
         var digitalData = digitalData || {};
         digitalData = {
             page: {
@@ -23,10 +34,14 @@
                 productID: "101333",
                 productName: "Sequin Dress"
             },
+customer: {
+loginStatus: customerStatus,
+userName: customerDetails
+},
         };
     </script>
 
-
+<script src="https://assets.adobedtm.com/6d07e8369d1a/ba3f281a96d9/launch-0c1d7ea5bf19.min.js" async></script>
 
     <title>Geometrixx|Women|Fine Apparel|Sequine Dress</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
